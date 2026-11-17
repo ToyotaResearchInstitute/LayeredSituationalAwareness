@@ -18,6 +18,8 @@ code_release/
 ├── read_data.py                # Processes raw_data → processed_data
 ├── train_svm.py                # Trains and evaluates SVM classifiers
 └── README.md
+├── LICENSE-CODE                # CC BY-NC 4.0 (code)
+├── LICENSE-DATA                # CC BY-NC-SA 4.0 (data)
 ```
 
 ---
@@ -124,6 +126,57 @@ Reads all CSVs from `processed_data/` and `raw_data/transcriptions.csv`. Runs 3 
 
 ---
 
+## License
+
+This repository uses two licenses:
+
+| Material | License | File |
+|---|---|---|
+| Code (`read_data.py`, `train_svm.py`) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) | [`LICENSE-CODE`](LICENSE-CODE) |
+| Data (`raw_data/`, `processed_data/`) | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | [`LICENSE-DATA`](LICENSE-DATA) |
+
+Both licenses prohibit commercial use and require attribution. The data license additionally requires that derivative datasets be shared under the same license. If you use this repository, please cite our paper (see [Citation](#citation)).
+
+### Waymo Open Dataset
+
+This repository does **not** contain or redistribute Waymo Open Dataset data (no camera images, boxes, or labels). It contains annotations collected by us (participant transcriptions, awareness labels, and eye-tracking recordings) together with features and metadata that reference or were computed from the Waymo Open Dataset:
+
+- `raw_data/queries.csv` and `raw_data/transcriptions.csv` refer to Waymo video clips and object IDs.
+- `processed_data/` contains per-trial features (for example, object size, gaze distance to the object, and color contrast) computed from Waymo Open Dataset v2.0.1 camera images and bounding boxes.
+
+The CC licenses above do not replace or override the [Waymo Open Dataset License Agreement](https://waymo.com/open/terms), which continues to apply to the Waymo-derived materials listed here. In particular:
+
+- You must obtain the Waymo Open Dataset yourself, from [waymo.com/open](https://waymo.com/open), and accept Waymo's terms to run `read_data.py` or to link our annotations to the original video.
+- Waymo-derived materials may be used for non-commercial purposes only (research, teaching, and scientific publication), and may not be used to operate or assist in operating a vehicle or in production systems.
+- Work that uses Waymo-derived materials should credit the Waymo Open Dataset and reference its terms, as the Waymo agreement requires.
+
+**Attribution.** This dataset and its accompanying code were made using the Waymo Open Dataset, provided by Waymo LLC under the Waymo Dataset License Agreement for Non-Commercial Use, available at [waymo.com/open/terms](https://waymo.com/open/terms), and your access and use of such work are governed by the terms and conditions therein.
+
+Waymo's suggested citation:
+
+```bibtex
+@misc{waymo_open_dataset,
+    title   = {Waymo Open Dataset: An autonomous driving dataset},
+    website = {\url{https://www.waymo.com/open}},
+    year    = {2019-2025}
+}
+```
+
+---
+
 ## Citation
 
-TODO: add citation once paper is published.
+If you use this dataset or code, please cite our paper:
+
+```bibtex
+@inproceedings{gupta2026see,
+  title={See Something, Say Something: Layered Driver Situational Awareness from Language},
+  author={Gupta, Pranay and Stent, Simon and Gideon, John and Battel, Kayli and Dees, Laporsha and Gomez, Patricio Reyes and Applegate-Kenton, Megan and Sumner, Emily and Rosman, Guy},
+  booktitle={2026 IEEE Intelligent Vehicles Symposium (IV)},
+  pages={1676--1683},
+  year={2026},
+  organization={IEEE}
+}
+```
+
+Please also cite the Waymo Open Dataset (see [License](#waymo-open-dataset)).
